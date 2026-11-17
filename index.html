@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download - Fundo Teams</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1f2937, #111827);
+      color: #f3f4f6;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 32px 24px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .icon-wrapper {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60a5fa;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.85; }
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    p {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .preview-box {
+      width: 100%;
+      max-height: 220px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #000000;
+    }
+
+    .preview-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="icon-wrapper">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+    </div>
+
+    <div>
+      <h1>Baixando Fundo Teams...</h1>
+      <p id="status-text">O download deve começar automaticamente em instantes.</p>
+    </div>
+
+    <div class="preview-box">
+      <img src="Fundo Teams.png" alt="Prévia do Fundo Teams">
+    </div>
+
+    <a id="download-link" href="Fundo Teams.png" download="Fundo Teams.png" class="btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Clique aqui se não iniciar
+    </a>
+
+    <span class="note">O arquivo será salvo na pasta de downloads padrão do seu navegador.</span>
+  </div>
+
+  <script>
+    function triggerDownload() {
+      const link = document.createElement('a');
+      link.href = 'Fundo Teams.png';
+      link.download = 'Fundo Teams.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      const status = document.getElementById('status-text');
+      if (status) {
+        status.textContent = 'Download iniciado! Caso não tenha começado, use o botão abaixo.';
+      }
+    }
+
+    // Dispara o download assim que o DOM estiver carregado
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(triggerDownload, 400);
+    });
+  </script>
+</body>
+</html>
+
